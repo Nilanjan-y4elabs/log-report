@@ -1,0 +1,36 @@
+{
+  "context": {
+    "ttl": "P3D",
+    "city": "*",
+    "action": "on_receiver_recon",
+    "bap_id": "ronitgoswami.online",
+    "bpp_id": "rsf-mock-service.ondc.org",
+    "domain": "ONDC:NTS10",
+    "bap_uri": "https://ronitgoswami.online",
+    "bpp_uri": "https://rsf-mock-service.ondc.org/",
+    "country": "IND",
+    "timestamp": "2025-10-30T13:30:43.745Z",
+    "message_id": "110c08d5-ca62-4d5c-b404-66b102ada1a2",
+    "core_version": "1.0.0",
+    "transaction_id": "7522a116-5867-4d74-87b0-f8630976670a"
+  },
+  "message": {
+    "orderbook": {
+      "orders": [
+        {
+          "id": "b25580b1-ae64-4249-8a83-a4a01c2c5b4b",
+          "message": { "code": "", "name": "" },
+          "invoice_no": "2023/XYZ/12346-3",
+          "settlement_id": "test-settlement-001",
+          "transaction_id": "7522a116-5867-4d74-87b0-f8630976670a",
+          "receiver_app_id": "ondc-ref-app.sequelstring.com/preprod/mock/seller",
+          "collector_app_id": "ronitgoswami.online",
+          "order_recon_status": "02",
+          "settlement_reference_no": "UTR123456789",
+          "counterparty_diff_amount": { "value": "0", "currency": "INR" },
+          "counterparty_recon_status": "01"
+        }
+      ]
+    }
+  }
+}
