@@ -9,7 +9,7 @@
     "bap_uri": "https://ronitgoswami.online",
     "bpp_uri": "https://rsf-mock-service.ondc.org/",
     "country": "IND",
-    "timestamp": "2025-10-30T15:54:26.375Z",
+    "timestamp": "2025-10-31T12:30:00.000Z",
     "message_id": "110c08d5-ca62-4d5c-b404-66b102ada1a2",
     "core_version": "1.0.0",
     "transaction_id": "7522a116-5867-4d74-87b0-f8630976670a"
@@ -18,22 +18,25 @@
     "orderbook": {
       "orders": [
         {
-          "id": "b25580b1-ae64-4249-8a83-a4a01c2c5b4b",
-          "invoice_no": "",
+          "id": "order-001-paid",
+          "invoice_no": "INV-2025-001",
           "collector_app_id": "ronitgoswami.online",
           "receiver_app_id": "ondc-ref-app.sequelstring.com/preprod/mock/seller",
           "state": "Completed",
+          "order_recon_status": "01",
+          "recon_status": "01",
+          "settlement_reason_code": "01",
           "provider": {
             "name": {
               "name": "Metro Service Provider",
-              "code": ""
+              "code": "METRO001"
             },
             "address": "karnataka"
           },
           "payment": {
             "uri": "https://api.razorpay.com/rsp",
             "params": {
-              "transaction_id": "7522a116-5867-4d74-87b0-f8630976670a",
+              "transaction_id": "txn-001",
               "transaction_status": "PAID",
               "amount": "500",
               "currency": "INR"
@@ -42,7 +45,7 @@
             "status": "PAID",
             "collected_by": "BAP",
             "@ondc/org/collected_by_status": "Assert",
-            "@ondc/org/buyer_app_finder_fee_type": "Percentage",
+            "@ondc/org/buyer_app_finder_fee_type": "percent",
             "@ondc/org/buyer_app_finder_fee_amount": "0",
             "@ondc/org/withholding_amount": "0",
             "@ondc/org/withholding_amount_status": "Assert",
@@ -56,10 +59,11 @@
               {
                 "settlement_counterparty": "seller-app",
                 "settlement_phase": "sale-amount",
-                "settlement_amount": 500,
+                "settlement_amount": "500",
                 "settlement_type": "neft",
-                "settlement_bank_account_no": 562391273445,
-                "settlement_ifsc_code": "SBI5448270",
+                "settlement_bank_account_no": "562391273445",
+                "settlement_ifsc_code": "SBIN0005448",
+                "settlement_timestamp": "2025-10-31T12:00:00.000Z",
                 "upi_address": "8667777799@oksbi",
                 "bank_name": "State Bank Of India",
                 "branch_name": "New Delhi",
@@ -89,11 +93,339 @@
             "payer_bank_code": "ICIC0001234",
             "payer_virtual_payment_address": "28cba@abctMh2h"
           },
-          "transaction_id": "7522a116-5867-4d74-87b0-f8630976670a",
-          "settlement_id": "test-settlement-001",
+          "transaction_id": "txn-001",
+          "settlement_id": "settlement-001",
           "settlement_reference_no": "UTR123456789",
-          "created_at": "2025-10-30T13:28:13.970Z",
-          "updated_at": "2025-10-30T13:28:13.970Z"
+          "created_at": "2025-10-31T10:00:00.000Z",
+          "updated_at": "2025-10-31T12:00:00.000Z"
+        },
+        {
+          "id": "order-002-overpaid",
+          "invoice_no": "INV-2025-002",
+          "collector_app_id": "ronitgoswami.online",
+          "receiver_app_id": "ondc-ref-app.sequelstring.com/preprod/mock/seller",
+          "state": "Completed",
+          "order_recon_status": "01",
+          "recon_status": "02",
+          "settlement_reason_code": "01",
+          "provider": {
+            "name": {
+              "name": "Metro Service Provider",
+              "code": "METRO001"
+            },
+            "address": "karnataka"
+          },
+          "payment": {
+            "uri": "https://api.razorpay.com/rsp",
+            "params": {
+              "transaction_id": "txn-002",
+              "transaction_status": "PAID",
+              "amount": "300",
+              "currency": "INR"
+            },
+            "type": "ON-ORDER",
+            "status": "PAID",
+            "collected_by": "BAP",
+            "@ondc/org/collected_by_status": "Assert",
+            "@ondc/org/buyer_app_finder_fee_type": "percent",
+            "@ondc/org/buyer_app_finder_fee_amount": "0",
+            "@ondc/org/withholding_amount": "0",
+            "@ondc/org/withholding_amount_status": "Assert",
+            "@ondc/org/return_window": "P6D",
+            "@ondc/org/return_window_status": "Assert",
+            "@ondc/org/settlement_basis": "Collection",
+            "@ondc/org/settlement_basis_status": "Assert",
+            "@ondc/org/settlement_window": "P1D",
+            "@ondc/org/settlement_window_status": "Assert",
+            "@ondc/org/settlement_details": [
+              {
+                "settlement_counterparty": "seller-app",
+                "settlement_phase": "sale-amount",
+                "settlement_amount": "300",
+                "settlement_type": "upi",
+                "settlement_bank_account_no": "562391273446",
+                "settlement_ifsc_code": "SBIN0005448",
+                "settlement_timestamp": "2025-10-31T11:00:00.000Z",
+                "upi_address": "8667777799@oksbi",
+                "bank_name": "State Bank Of India",
+                "branch_name": "New Delhi",
+                "beneficiary_name": "BMRCL",
+                "beneficiary_address": "Karnataka",
+                "settlement_status": "PAID",
+                "settlement_reference": "UTR123456790"
+              }
+            ]
+          },
+          "withholding_tax_gst": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "withholding_tax_tds": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "deduction_by_collector": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "payerdetails": {
+            "payer_name": "Evolevol Tech. Pvt. Ltd.",
+            "payer_address": "Bangaluru",
+            "payer_account_no": "9876543210",
+            "payer_bank_code": "ICIC0001234",
+            "payer_virtual_payment_address": "28cba@abctMh2h"
+          },
+          "transaction_id": "txn-002",
+          "settlement_id": "settlement-002",
+          "settlement_reference_no": "UTR123456790",
+          "created_at": "2025-10-31T10:30:00.000Z",
+          "updated_at": "2025-10-31T11:30:00.000Z"
+        },
+        {
+          "id": "order-003-underpaid",
+          "invoice_no": "INV-2025-003",
+          "collector_app_id": "ronitgoswami.online",
+          "receiver_app_id": "ondc-ref-app.sequelstring.com/preprod/mock/seller",
+          "state": "Completed",
+          "order_recon_status": "01",
+          "recon_status": "03",
+          "settlement_reason_code": "02",
+          "provider": {
+            "name": {
+              "name": "Metro Service Provider",
+              "code": "METRO001"
+            },
+            "address": "karnataka"
+          },
+          "payment": {
+            "uri": "https://api.razorpay.com/rsp",
+            "params": {
+              "transaction_id": "txn-003",
+              "transaction_status": "PAID",
+              "amount": "700",
+              "currency": "INR"
+            },
+            "type": "ON-ORDER",
+            "status": "PAID",
+            "collected_by": "BAP",
+            "@ondc/org/collected_by_status": "Assert",
+            "@ondc/org/buyer_app_finder_fee_type": "percent",
+            "@ondc/org/buyer_app_finder_fee_amount": "0",
+            "@ondc/org/withholding_amount": "0",
+            "@ondc/org/withholding_amount_status": "Assert",
+            "@ondc/org/return_window": "P6D",
+            "@ondc/org/return_window_status": "Assert",
+            "@ondc/org/settlement_basis": "Collection",
+            "@ondc/org/settlement_basis_status": "Assert",
+            "@ondc/org/settlement_window": "P1D",
+            "@ondc/org/settlement_window_status": "Assert",
+            "@ondc/org/settlement_details": [
+              {
+                "settlement_counterparty": "seller-app",
+                "settlement_phase": "sale-amount",
+                "settlement_amount": "700",
+                "settlement_type": "neft",
+                "settlement_bank_account_no": "562391273447",
+                "settlement_ifsc_code": "SBIN0005448",
+                "settlement_timestamp": "2025-10-31T09:00:00.000Z",
+                "upi_address": "8667777799@oksbi",
+                "bank_name": "State Bank Of India",
+                "branch_name": "New Delhi",
+                "beneficiary_name": "BMRCL",
+                "beneficiary_address": "Karnataka",
+                "settlement_status": "PAID",
+                "settlement_reference": "UTR123456791"
+              }
+            ]
+          },
+          "withholding_tax_gst": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "withholding_tax_tds": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "deduction_by_collector": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "payerdetails": {
+            "payer_name": "Evolevol Tech. Pvt. Ltd.",
+            "payer_address": "Bangaluru",
+            "payer_account_no": "9876543210",
+            "payer_bank_code": "ICIC0001234",
+            "payer_virtual_payment_address": "28cba@abctMh2h"
+          },
+          "transaction_id": "txn-003",
+          "settlement_id": "settlement-003",
+          "settlement_reference_no": "UTR123456791",
+          "created_at": "2025-10-31T08:00:00.000Z",
+          "updated_at": "2025-10-31T09:00:00.000Z"
+        },
+        {
+          "id": "order-004-paid",
+          "invoice_no": "INV-2025-004",
+          "collector_app_id": "ronitgoswami.online",
+          "receiver_app_id": "ondc-ref-app.sequelstring.com/preprod/mock/seller",
+          "state": "Completed",
+          "order_recon_status": "01",
+          "recon_status": "01",
+          "settlement_reason_code": "04",
+          "provider": {
+            "name": {
+              "name": "Metro Service Provider",
+              "code": "METRO001"
+            },
+            "address": "karnataka"
+          },
+          "payment": {
+            "uri": "https://api.razorpay.com/rsp",
+            "params": {
+              "transaction_id": "txn-004",
+              "transaction_status": "PAID",
+              "amount": "500",
+              "currency": "INR"
+            },
+            "type": "ON-ORDER",
+            "status": "PAID",
+            "collected_by": "BAP",
+            "@ondc/org/collected_by_status": "Assert",
+            "@ondc/org/buyer_app_finder_fee_type": "percent",
+            "@ondc/org/buyer_app_finder_fee_amount": "0",
+            "@ondc/org/withholding_amount": "0",
+            "@ondc/org/withholding_amount_status": "Assert",
+            "@ondc/org/return_window": "P6D",
+            "@ondc/org/return_window_status": "Assert",
+            "@ondc/org/settlement_basis": "Collection",
+            "@ondc/org/settlement_basis_status": "Assert",
+            "@ondc/org/settlement_window": "P1D",
+            "@ondc/org/settlement_window_status": "Assert",
+            "@ondc/org/settlement_details": [
+              {
+                "settlement_counterparty": "seller-app",
+                "settlement_phase": "sale-amount",
+                "settlement_amount": "500",
+                "settlement_type": "upi",
+                "settlement_bank_account_no": "562391273448",
+                "settlement_ifsc_code": "SBIN0005448",
+                "settlement_timestamp": "2025-10-31T10:30:00.000Z",
+                "upi_address": "8667777799@oksbi",
+                "bank_name": "State Bank Of India",
+                "branch_name": "New Delhi",
+                "beneficiary_name": "BMRCL",
+                "beneficiary_address": "Karnataka",
+                "settlement_status": "PAID",
+                "settlement_reference": "UTR123456792"
+              }
+            ]
+          },
+          "withholding_tax_gst": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "withholding_tax_tds": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "deduction_by_collector": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "payerdetails": {
+            "payer_name": "Evolevol Tech. Pvt. Ltd.",
+            "payer_address": "Bangaluru",
+            "payer_account_no": "9876543210",
+            "payer_bank_code": "ICIC0001234",
+            "payer_virtual_payment_address": "28cba@abctMh2h"
+          },
+          "transaction_id": "txn-004",
+          "settlement_id": "settlement-004",
+          "settlement_reference_no": "UTR123456792",
+          "created_at": "2025-10-31T09:30:00.000Z",
+          "updated_at": "2025-10-31T10:30:00.000Z"
+        },
+        {
+          "id": "order-005-paid",
+          "invoice_no": "INV-2025-005",
+          "collector_app_id": "ronitgoswami.online",
+          "receiver_app_id": "ondc-ref-app.sequelstring.com/preprod/mock/seller",
+          "state": "Completed",
+          "order_recon_status": "01",
+          "recon_status": "01",
+          "settlement_reason_code": "05",
+          "provider": {
+            "name": {
+              "name": "Metro Service Provider",
+              "code": "METRO001"
+            },
+            "address": "karnataka"
+          },
+          "payment": {
+            "uri": "https://api.razorpay.com/rsp",
+            "params": {
+              "transaction_id": "txn-005",
+              "transaction_status": "PAID",
+              "amount": "500",
+              "currency": "INR"
+            },
+            "type": "ON-ORDER",
+            "status": "PAID",
+            "collected_by": "BAP",
+            "@ondc/org/collected_by_status": "Assert",
+            "@ondc/org/buyer_app_finder_fee_type": "percent",
+            "@ondc/org/buyer_app_finder_fee_amount": "0",
+            "@ondc/org/withholding_amount": "0",
+            "@ondc/org/withholding_amount_status": "Assert",
+            "@ondc/org/return_window": "P6D",
+            "@ondc/org/return_window_status": "Assert",
+            "@ondc/org/settlement_basis": "Collection",
+            "@ondc/org/settlement_basis_status": "Assert",
+            "@ondc/org/settlement_window": "P1D",
+            "@ondc/org/settlement_window_status": "Assert",
+            "@ondc/org/settlement_details": [
+              {
+                "settlement_counterparty": "seller-app",
+                "settlement_phase": "sale-amount",
+                "settlement_amount": "500",
+                "settlement_type": "neft",
+                "settlement_bank_account_no": "562391273449",
+                "settlement_ifsc_code": "SBIN0005448",
+                "settlement_timestamp": "2025-10-31T11:30:00.000Z",
+                "upi_address": "8667777799@oksbi",
+                "bank_name": "State Bank Of India",
+                "branch_name": "New Delhi",
+                "beneficiary_name": "BMRCL",
+                "beneficiary_address": "Karnataka",
+                "settlement_status": "PAID",
+                "settlement_reference": "UTR123456793"
+              }
+            ]
+          },
+          "withholding_tax_gst": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "withholding_tax_tds": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "deduction_by_collector": {
+            "currency": "INR",
+            "value": "0"
+          },
+          "payerdetails": {
+            "payer_name": "Evolevol Tech. Pvt. Ltd.",
+            "payer_address": "Bangaluru",
+            "payer_account_no": "9876543210",
+            "payer_bank_code": "ICIC0001234",
+            "payer_virtual_payment_address": "28cba@abctMh2h"
+          },
+          "transaction_id": "txn-005",
+          "settlement_id": "settlement-005",
+          "settlement_reference_no": "UTR123456793",
+          "created_at": "2025-10-31T10:30:00.000Z",
+          "updated_at": "2025-10-31T11:30:00.000Z"
         }
       ]
     }
